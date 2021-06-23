@@ -1,4 +1,4 @@
-# bookstore-vue
+# BookStore
 
 ## Project setup
 ```
