@@ -1,8 +1,8 @@
 <template>
 <div class="main">
     <div class="container">
-        <img src="../assets/sideImg.png" alt="notFound" />
-        <p>Online Book Shopping</p>
+        <img  src="../assets/sideImg.png" alt="notFound" />
+        <p >Online Book Shopping</p>
         <div class="box">
             <div class="headings">
                 <h5 class="signin" :class="{ active: isLogin }" @click="isLogin = true">Login</h5>
@@ -19,7 +19,7 @@
                 </div>
                 <div class="password-section">
                     <p>Password</p>
-                    <input :type="password_type" class="password" id="passField" v-model="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$" required>
+                    <input :type="password_type" class="password" :class="{ 'password-visible': isPasswordVisible }" id="passField" v-model="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$" required>
                     <i class="bi bi-eye-slash" id="togglePassword" @click="togglePassword();"></i>
                 </div>
                 <div class="mobile">
@@ -44,18 +44,15 @@ export default {
             password: '',
             mobile: '',
             password_type: "password",
-            isLogin:false
+            isLogin:false,
+            isPasswordVisible: false,
         }
     },
     methods: {
         togglePassword() {
             this.password_type = this.password_type === 'password' ? 'text' : 'password'
-            document.getElementById('passField').style.margin = '0px 0px 0px 69px';
-            document.getElementById('passField').style.width = "252px";
-            document.getElementById('passField').style.height = "35px";
-            document.getElementById('passField').style.background = "$pale_white 0% 0% no-repeat padding-box";
+            this.isPasswordVisible = !this.isPasswordVisible
         },
-
         handlesubmit() {
             let userData = {
                 fullName: this.fullName,
