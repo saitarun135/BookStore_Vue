@@ -1,8 +1,8 @@
 <template>
 <div class="main">
     <div class="container">
-        <img  src="../assets/sideImg.png" alt="notFound" />
-        <p >Online Book Shopping</p>
+        <img id="side-img" src="../assets/sideImg.png" alt="notFound" />
+        <p id="side-content">Online Book Shopping</p>
         <div class="box">
             <div class="headings">
                 <h5 class="signin" :class="{ active: isLogin }" @click="isLogin = true">Login</h5>
@@ -11,15 +11,15 @@
             <form ref="myForm" @submit.prevent="handlesubmit">
                 <div class="fullname">
                     <p>FullName</p>
-                    <input type="name" class="namebox" required v-model="fullName" autocomplete="off" pattern="[A-Za-z]{3,12}">
+                    <input type="name" class="namebox"  required v-model="fullName" autocomplete="off" pattern="[A-Za-z]{3,12}">
                 </div>
                 <div class="username">
                     <p>EmailID</p>
-                    <input type="email" class="emailbox" required v-model="emailID" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                    <input type="email" class="emailbox" required v-model="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                 </div>
                 <div class="password-section">
                     <p>Password</p>
-                    <input :type="password_type" class="password" :class="{ 'password-visible': isPasswordVisible }" id="passField" v-model="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$" required>
+                    <input :type="password_type" class="password" :class="{'password-visible': isPasswordVisible }" id="passField" v-model="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$" required>
                     <i class="bi bi-eye-slash" id="togglePassword" @click="togglePassword();"></i>
                 </div>
                 <div class="mobile">
@@ -40,7 +40,7 @@ export default {
     data() {
         return {
             fullName: '',
-            emailID: '',
+            email: '',
             password: '',
             mobile: '',
             password_type: "password",
@@ -56,7 +56,7 @@ export default {
         handlesubmit() {
             let userData = {
                 fullName: this.fullName,
-                emailID: this.emailID,
+                email: this.email,
                 password: this.password,
                 mobile: this.mobile
             }
@@ -76,5 +76,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/styles/Register.scss";
+    @import "@/styles/Register.scss";
 </style>
