@@ -4,7 +4,7 @@
 * @file : Register.spec.js
 * @author : Sai Tarun <saitarun800@gmail.com>
 * @version : 1.0
-* @since : 31/01/2021
+* @since : 26/06/2021
 *
 **************************************************************************/
 
@@ -34,26 +34,26 @@ describe('Register.vue', ()=>{
         expect(wrapper.find('#side-content')).toBeTruthy();
     });
     it('has a two title sections',()=>{
-        expect(wrapper.contains('#signup')).toBe(true);
-        expect(wrapper.contains('#login')).toBe(true);
+        expect(wrapper.find('#signup')).toBeTruthy();
+        expect(wrapper.find('#login')).toBeTruthy();
     });
     it('has a full name input box',()=>{
-        expect(wrapper.contains('#name-input')).toBe(true);
+        expect(wrapper.find('#name-input')).toBeTruthy();
     });
     it('has a email input box',()=>{
-        expect(wrapper.contains('#Email-input')).toBe(true);
+        expect(wrapper.find('#Email-input')).toBeTruthy();
     });
     it('has a password input box',()=>{
-        expect(wrapper.contains('#passField')).toBe(true);
+        expect(wrapper.find('#passField')).toBeTruthy();
     });
     it('has a eye icons',()=>{
-        expect(wrapper.contains('#togglePassword')).toBe(true);
+        expect(wrapper.find('#togglePassword')).toBeTruthy();
     });
     it('has a mobile input field',()=>{
-        expect(wrapper.contains('.telephone')).toBe(true);
+        expect(wrapper.find('.telephone')).toBeTruthy();
     });
     it('has a button field',()=>{
-        expect(wrapper.contains('.btn-section')).toBe(true);
+        expect(wrapper.find('.btn-section')).toBeTruthy();
     });
    
 })
