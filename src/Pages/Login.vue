@@ -1,13 +1,15 @@
 <template>
 <div class="main">
-    <div  v-if="flag" class="container">
+    <div v-if="flag" class="container">
         <img id="side-img" src="../assets/sideImg.png" alt="notFound" />
         <p id="side-content">Online Book Shopping</p>
         <div class="box">
             <div class="headings">
-                <h5 class="signin"  :class="{ active: !isSignup }" @click="isSignup = false">Login</h5>
-    
-                <h5 class="signup"   id="signup" v-on:click="flip();" :class="{ active: isSignup }" @click="isSignup = true">signup</h5>
+                <h5 class="signin" :class="{ active: !isSignup }" @click="isSignup = false">Login</h5>
+                <!-- <router-link to="/register">
+                    <h5 class="signup"  id="signup" :class="{ active: !isLogin }" @click="isLogin = false">signup</h5>
+                </router-link> -->
+                <h5 class="signup" id="signup" v-on:click="flip();" :class="{ active: isSignup }" @click="isSignup = true">signup</h5>
             </div>
             <form @submit.prevent="">
                 <div class="username">
@@ -35,16 +37,18 @@
             </form>
         </div>
     </div>
-    <Register  v-else />
+    <Register v-else />
 </div>
 </template>
 
 <script>
-
+import Register from './Register.vue'
 import service from '../service/User'
 export default {
     name: 'Login',
- 
+    components: {
+        Register
+    },
     data() {
         return {
             email: '',
@@ -52,11 +56,13 @@ export default {
             password_type: "password",
             isPasswordVisible: false,
             isSignup: false,
-            flag:true,
+            flag: true,
         }
     },
     methods: {
-        
+        flip() {
+            this.flag = !this.flag;
+        },
         togglePassword() {
             this.password_type = this.password_type === 'password' ? 'text' : 'password'
             this.isPasswordVisible = !this.isPasswordVisible
@@ -67,13 +73,14 @@ export default {
                 password: this.password,
             }
             service.userLogin(userData).then(response => {
-                    if(response.status==200){
+                if (response.status == 200) {
                     alert("user logged in... ");
                     return response;
-                    }
+                }
             }).catch(error => {
                 alert("invalid credentials");
                 return error;
+
             })
         }
     }
