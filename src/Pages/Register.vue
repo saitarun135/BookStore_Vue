@@ -1,21 +1,25 @@
 <template>
 <div class="main">
-    <div class="container">
+    <!-- v-on:click="flip()" v-if="flag==true" -->
+    <div   v-if="flag==true"  class="container">
         <img id="side-img" src="../assets/sideImg.png" alt="notFound" />
         <p id="side-content">Online Book Shopping</p>
         <div class="box">
             <div class="headings">
-                <h5 class="signin" :class="{ active: isLogin }" @click="isLogin = true">Login</h5>
-                <h5 class="signup" :class="{ active: !isLogin }" @click="isLogin = false">signup</h5>
+                <!-- <router-link to="/login">
+                    <h5 class="signin" style="color:black;text-decoration:none;" id="login" :class="{ active: isLogin }" @click="isLogin = true">Login</h5>
+                </router-link> -->
+                <h5 class="signin" v-on:click="flip();" id="login" :class="{ active: isLogin }" @click="isLogin = true">Login</h5>
+                <h5 class="signup" id="signup" :class="{ active: !isLogin }" @click="isLogin = false">signup</h5>
             </div>
             <form ref="myForm" @submit.prevent="handlesubmit">
                 <div class="fullname">
                     <p>FullName</p>
-                    <input type="name" class="namebox"  required v-model="fullName" autocomplete="off" pattern="[A-Za-z]{3,12}">
+                    <input type="name" id="name-input" class="namebox"  required v-model="fullName" autocomplete="off" pattern="[A-Za-z]{3,12}">
                 </div>
                 <div class="username">
                     <p>EmailID</p>
-                    <input type="email" class="emailbox" required v-model="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                    <input type="email" id="Email-input" class="emailbox" autocomplete="off" required v-model="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                 </div>
                 <div class="password-section">
                     <p>Password</p>
@@ -24,19 +28,24 @@
                 </div>
                 <div class="mobile">
                     <p>MobileNumber</p>
-                    <input type="tel" class="telephone" v-model="mobile" pattern="^\d{10}$" required>
+                    <input type="tel" class="telephone" autocomplete="off" v-model="mobile" id="tel" pattern="^\d{10}$" required>
                 </div>
-                <button class="btn-section" type="submit">Signup</button>
+                <button class="btn-section" id="btn" type="submit">Signup</button>
             </form>
         </div>
     </div>
+    <Login v-if="flag==false" />
 </div>
 </template>
 
 <script>
+import Login from './Login.vue'
 import service from '../service/User'
 export default {
     name: 'Register',
+    components: {
+        Login
+    },
     data() {
         return {
             fullName: '',
@@ -44,11 +53,16 @@ export default {
             password: '',
             mobile: '',
             password_type: "password",
-            isLogin:false,
+            isLogin: false,
             isPasswordVisible: false,
+            flag: true,
+            title: 'Online Book Shopping'
         }
     },
     methods: {
+        flip() {
+            this.flag = !this.flag;
+        },
         togglePassword() {
             this.password_type = this.password_type === 'password' ? 'text' : 'password'
             this.isPasswordVisible = !this.isPasswordVisible
@@ -64,6 +78,7 @@ export default {
                 if (response.status == 201) {
                     alert("user registered successfully");
                     this.$refs.myForm.reset();
+                    this.$router.push('/login');
                 }
                 return response;
             }).catch(error => {
@@ -76,5 +91,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    @import "@/styles/Register.scss";
+@import "@/styles/Register.scss";
 </style>
