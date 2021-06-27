@@ -36,7 +36,7 @@ img{
 .box{
     background: $pale_white 0% 0% no-repeat padding-box;
     box-shadow: 0px 5px 15px #00000029;
-    border: 1px solid #E4E4E4;
+    border: 1px solid $dim_white;
     border-radius: 6px;
     opacity: 1;
     height: 425px;
@@ -64,28 +64,6 @@ img{
     padding-left: 92px; /* 82 */
     
 }
-.fullname p{
-    margin-top: 91px;
-    margin-left: 69px;
-    width: 45px;
-    height: 13px;
-    text-align: left;
-    font: normal normal normal 12px/13px Roboto;
-    letter-spacing: 0px;
-    color: $light_black;
-    text-transform: capitalize;
-    opacity: 1;
-    margin-bottom: 0px;
-}
-.namebox{
-    background: $pale_white 0% 0% no-repeat padding-box;
-    border: 1px solid $border_clr;
-    border-radius: 2px;
-    opacity: 1;
-    margin-left: 69px;
-    width: 252px;
-    height: 35px;
-}
 .username p{
     text-align: left;
     font: normal normal normal 12px/13px Roboto;
@@ -95,13 +73,12 @@ img{
     opacity: 1;
     width: 36px;
     height: 13px;
-    margin-top: 15px;
+    margin-top:91px;
     margin-left: 69px;
     margin-bottom: 0px;
 }
 .emailbox{
     background: $pale_white 0% 0% no-repeat padding-box;
-    // border: 1px solid $dark_red;
     border: 1px solid $border_clr;
     border-radius: 2px;
     opacity: 1;
@@ -122,7 +99,7 @@ img{
     margin-left: 69px;
     margin-bottom: 0px;
 }
-input[type="password"]{
+.password{
     background: $pale_white 0% 0% no-repeat padding-box;
     border: 1px solid $border_clr;
     border-radius: 2px;
@@ -132,36 +109,91 @@ input[type="password"]{
     margin-left: 69px;
     
 }
-.mobile p{
-    text-align: left;
-    font: normal normal normal 12px/13px Roboto;
+
+.forget-section a{
+    text-decoration: none;
+    color:$dark_grey;
+    width: 81px;
+    height: 13px;
+    
+    // font: normal normal normal 1px/13px Roboto;
     letter-spacing: 0px;
-    color: $light_black;
-    text-transform: capitalize;
-    opacity: 1;   
-    margin-top: 15px;
-    margin-left: 69px;
-    margin-bottom: -7px;
+    color: $dark_grey;
+    opacity: 1;
+    margin-left:202px;
+    margin-top:3px;
 }
-.telephone{
-    background: $pale_white 0% 0% no-repeat padding-box;
-    border: 1px solid $border_clr;
-    border-radius: 2px;
-    opacity: 1;   
-    width: 252px;
-    height: 35px;
-    margin-left: 69px;
-    margin-bottom: 22px;
-}
-.btn-section{
-    margin-left: 69px;
+.btn-section .login-btn{
+    margin-left:69px;
+    margin-top:14px;
     width: 252px;
     height: 37px;
-    background: #A03037 0% 0% no-repeat padding-box;
+    background: $redish_brown 0% 0% no-repeat padding-box;
     border-radius: 3px;
     opacity: 1;
-    color:$white;
+    font: normal normal normal 15px/20px Roboto;
+    letter-spacing: 0px;
+    color: $pale_white;
+
 }
+.seperator{
+    margin-top:26px;
+   
+}
+.seperator h5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1em;
+    font: normal normal bold 14px/18px Meiryo UI;
+    letter-spacing: 0px;
+    color: #343434;
+    text-transform: uppercase;
+    opacity: 1;
+    width:280px;
+    margin-left:53px;
+  }
+  
+  .seperator h5::before,
+  .seperator h5::after {
+    content: "";
+    display: block;
+    flex-grow: 1;
+    height: 1px;
+    background: $bg_grey;
+  }
+  
+  .seperator h5 span {
+    padding: 0 1.5em;
+  }
+  .btn-groups{
+      display:flex;
+
+  }
+.btn-primary {
+    width: 126px;
+    height: 37px;
+    background: #4266B2 0% 0% no-repeat padding-box;
+    border-radius: 3px;
+    opacity: 1;
+    font: normal normal normal 14px/16px Roboto;
+    letter-spacing: 1px;
+    color: $pale_white;
+    margin-left: 69px;
+    margin-top:25px;
+}
+.btn-light{
+    width: 119px;
+    height: 37px;
+    background: $pale_white 0% 0% no-repeat padding-box;
+    border: 1px solid $dim_white;
+    border-radius: 3px;
+    opacity: 1;
+    margin-left:7px;
+    margin-top:25px;
+    color: $light_black
+}
+
 .headings{
     cursor:pointer;
 }
@@ -174,11 +206,10 @@ input[type="password"]{
     position: relative;
 }
 
-
 .signin.active,
 .signup.active {
   text-decoration: underline;
-  text-decoration-color: #A03037;
+  text-decoration-color: $redish_brown;
   text-decoration-style: solid;
   text-decoration-thickness: 5px;
 }
@@ -187,4 +218,15 @@ input[type="password"]{
     width: 252px;
     height: 35px;
     background:$pale_white 0% 0% no-repeat padding-box;
+}
+#signup:hover{
+text-decoration: none;
+border-bottom: none;
+}
+.headings .signup{
+    font: normal normal medium 25px/33px Roboto;
+    letter-spacing: 0px;
+    color: $light_black;
+    text-transform: uppercase;
+    text-decoration:none;
 }
