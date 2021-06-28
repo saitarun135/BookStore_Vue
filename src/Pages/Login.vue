@@ -5,10 +5,7 @@
         <p id="side-content">Online Book Shopping</p>
         <div class="box">
             <div class="headings">
-                <h5 class="signin" :class="{ active: !isSignup }" @click="isSignup = false">Login</h5>
-                <!-- <router-link to="/register">
-                    <h5 class="signup"  id="signup" :class="{ active: !isLogin }" @click="isLogin = false">signup</h5>
-                </router-link> -->
+                <h5 class="signin" id="login" :class="{ active: !isSignup }" @click="isSignup = false">Login</h5>
                 <h5 class="signup" id="signup" v-on:click="flip();" :class="{ active: isSignup }" @click="isSignup = true">signup</h5>
             </div>
             <form @submit.prevent="">
@@ -22,18 +19,12 @@
                     <i class="bi bi-eye-slash" id="togglePassword" @click="togglePassword();"></i>
                 </div>
                 <div class="forget-section">
-                    <a href="">Forgot-password</a>
+                    <a href="/forgot">Forgot-password</a>
                 </div>
                 <div class="btn-section">
                     <button type="submit" @click="handlesubmit();" class="login-btn">Login</button>
                 </div>
-                <div class="seperator">
-                    <h5><span>OR</span></h5>
-                </div>
-                <div class="btn-groups">
-                    <button type="button" class="btn btn-primary">Facebook</button>
-                    <button type="button" class="btn btn-light">Google</button>
-                </div>
+               
             </form>
         </div>
     </div>
@@ -42,12 +33,11 @@
 </template>
 
 <script>
-import Register from './Register.vue'
 import service from '../service/User'
 export default {
     name: 'Login',
     components: {
-        Register
+        Register: () => import('./Register.vue'),
     },
     data() {
         return {
@@ -57,6 +47,7 @@ export default {
             isPasswordVisible: false,
             isSignup: false,
             flag: true,
+            sideContent:'Online Book Shopping'
         }
     },
     methods: {
@@ -80,7 +71,6 @@ export default {
             }).catch(error => {
                 alert("invalid credentials");
                 return error;
-
             })
         }
     }
