@@ -1,21 +1,17 @@
 <template>
 <div class="main">
-    <!-- v-on:click="flip()" v-if="flag==true" -->
-    <div   v-if="flag==true"  class="container">
+    <div v-if="flag==true" class="container">
         <img id="side-img" src="../assets/sideImg.png" alt="notFound" />
         <p id="side-content">Online Book Shopping</p>
         <div class="box">
             <div class="headings">
-                <!-- <router-link to="/login">
-                    <h5 class="signin" style="color:black;text-decoration:none;" id="login" :class="{ active: isLogin }" @click="isLogin = true">Login</h5>
-                </router-link> -->
                 <h5 class="signin" v-on:click="flip();" id="login" :class="{ active: isLogin }" @click="isLogin = true">Login</h5>
                 <h5 class="signup" id="signup" :class="{ active: !isLogin }" @click="isLogin = false">signup</h5>
             </div>
             <form ref="myForm" @submit.prevent="handlesubmit">
                 <div class="fullname">
                     <p>FullName</p>
-                    <input type="name" id="name-input" class="namebox"  required v-model="fullName" autocomplete="off" pattern="[A-Za-z]{3,12}">
+                    <input type="name" id="name-input" class="namebox" required v-model="fullName" autocomplete="off" pattern="[A-Za-z]{3,12}">
                 </div>
                 <div class="username">
                     <p>EmailID</p>
@@ -39,12 +35,12 @@
 </template>
 
 <script>
-import Login from './Login.vue'
+
 import service from '../service/User'
 export default {
     name: 'Register',
     components: {
-        Login
+       Login: () => import('./Login.vue')
     },
     data() {
         return {
@@ -91,5 +87,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/styles/Register.scss";
+    @import "@/styles/Register.scss";
 </style>
