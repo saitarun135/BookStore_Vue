@@ -73,7 +73,7 @@ img{
     opacity: 1;
     width: 36px;
     height: 13px;
-    margin-top:91px;
+    margin-top:105px;
     margin-left: 69px;
     margin-bottom: 0px;
 }
@@ -95,7 +95,7 @@ img{
     opacity: 1;   
     width: 44px;
     height: 13px;
-    margin-top: 15px;
+    margin-top: 28px;
     margin-left: 69px;
     margin-bottom: 0px;
 }
@@ -125,7 +125,7 @@ img{
 }
 .btn-section .login-btn{
     margin-left:69px;
-    margin-top:14px;
+    margin-top:44px;
     width: 252px;
     height: 37px;
     background: $redish_brown 0% 0% no-repeat padding-box;
@@ -170,29 +170,7 @@ img{
       display:flex;
 
   }
-.btn-primary {
-    width: 126px;
-    height: 37px;
-    background: #4266B2 0% 0% no-repeat padding-box;
-    border-radius: 3px;
-    opacity: 1;
-    font: normal normal normal 14px/16px Roboto;
-    letter-spacing: 1px;
-    color: $pale_white;
-    margin-left: 69px;
-    margin-top:25px;
-}
-.btn-light{
-    width: 119px;
-    height: 37px;
-    background: $pale_white 0% 0% no-repeat padding-box;
-    border: 1px solid $dim_white;
-    border-radius: 3px;
-    opacity: 1;
-    margin-left:7px;
-    margin-top:25px;
-    color: $light_black
-}
+
 
 .headings{
     cursor:pointer;
