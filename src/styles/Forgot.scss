@@ -1,0 +1,104 @@
+@import "colors";
+.navbar-default {
+    background: $redish_brown;
+    height: 60px;
+}
+
+li p {
+    margin-top: 5px;
+    margin-left: -1250px;
+    width: 91px;
+    height: 26px;
+    text-align: left;
+    font: normal normal normal 18px/26px Roboto;
+    letter-spacing: 0px;
+    color: $pale_white;
+    text-transform: capitalize;
+    opacity: 1;
+}
+
+img {
+    background: transparent 0% 0% no-repeat padding-box;
+    opacity: 1;
+    width: 31px;
+    height: 24px;
+    margin-top: -12px;
+    margin-left: 194px;
+}
+
+.forgotContent {
+    font: normal normal medium 15px/30px Roboto;
+
+    letter-spacing: 0px;
+    color: $light_black;
+    text-transform: capitalize;
+    opacity: 1;
+    margin-top: 101px;
+    margin-left: 600px;
+    margin-bottom: 25px;
+    width: 560px;
+    height: 33px;
+}
+
+.container {
+    margin-left: 515px;
+    width: 445px;
+    height: 287px;
+    background: $pale_white 0% 0% no-repeat padding-box;
+    border: 1px solid $dim_white;
+    border-radius: 6px;
+    opacity: 1
+}
+
+.content {
+
+    padding-top: 36px;
+    padding-left: 67px;
+    font: normal normal normal 14px/18px Roboto;
+    font-weight: 100;
+    letter-spacing: 0px;
+    color: #878787;
+    opacity: 1;
+    width: 350px;
+    height: 40px;
+}
+
+.username .email {
+    color: $light_black;
+    padding-top: 40px;
+    padding-left: 67px;
+    width: 36px;
+    height: 13px;
+    font: normal normal medium 10px/11px Roboto;
+    letter-spacing: 0px;
+    color: $light_black;
+    text-transform: capitalize;
+    opacity: 1;
+}
+
+.emailbox {
+    margin-left: 67px;
+    width: 285px;
+    height: 35px;
+    margin-right: 65px;
+    margin-top: 10px;
+    background: $pale_white 0% 0% no-repeat padding-box;
+    border: 1px solid $border_clr;
+    border-radius: 2px;
+    opacity: 1;
+}
+
+button[type="submit"] {
+    background: $redish_brown 0% 0% no-repeat padding-box;
+    border-radius: 3px;
+    opacity: 1;
+    width: 285px;
+    height: 37px;
+    margin-left: 67px;
+    margin-top: 35px;
+    font: normal normal normal 15px/20px Roboto;
+    letter-spacing: 0px;
+    color: $pale_white;
+    opacity: 1;
+
+}
