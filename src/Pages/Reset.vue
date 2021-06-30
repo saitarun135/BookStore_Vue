@@ -7,11 +7,11 @@
         <form @submit.prevent="">
             <div class="New-section">
                 <p class="newPassword">NewPassword</p>
-                <input type="password"  class="emailbox" autocomplete="off" required v-model="newPassword" id="Email-input" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                <input type="password"  class="passwordbox" autocomplete="off" required v-model="newPassword" id="password-input" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$" >
             </div>
             <div class="confirm-section">
                 <p class="confirmPassword">confirmPassword</p>
-                <input type="password"  class="emailbox" autocomplete="off" required v-model="confirmPassword" id="Email-input" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                <input type="password"  class="passwordbox" autocomplete="off" required v-model="confirmPassword" id="confirm-input" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$" >
             </div>
             <div class="btn-section">
                 <button type="submit" id="btn-group" @click="handlesubmit();">Update</button>
@@ -27,7 +27,10 @@ export default{
     data(){
         return{
            newPassword:'',
-           confirmPassword:'' 
+           confirmPassword:'',
+           title:'Reset Password',
+           newPasswordContent:'NewPassword',
+           confirmPasswordContent:'confirmPassword'
         }
     },
     methods:{
