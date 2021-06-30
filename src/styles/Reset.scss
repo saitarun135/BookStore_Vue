@@ -1,0 +1,79 @@
+@import "colors";
+
+.ResetContent {
+    font: normal normal medium 15px/30px Roboto;
+
+    letter-spacing: 0px;
+    color: $light_black;
+    text-transform: capitalize;
+    opacity: 1;
+    margin-top: 101px;
+    margin-left: 630px;
+    margin-bottom: 18px;
+    width: 560px;
+    height: 33px;
+}
+
+.container {
+    margin-left: 515px;
+    width: 445px;
+    height: 287px;
+    background: $pale_white 0% 0% no-repeat padding-box;
+    border: 1px solid $dim_white;
+    border-radius: 6px;
+    opacity: 1
+}
+
+
+
+.New-section .newPassword {
+    color: $light_black;
+    padding-top: 40px;
+    padding-left: 67px;
+    width: 36px;
+    height: 13px;
+    font: normal normal medium 10px/11px Roboto;
+    letter-spacing: 0px;
+    color: $light_black;
+    text-transform: capitalize;
+    opacity: 1;
+}
+.confirm-section .confirmPassword{
+    color: $light_black;
+    padding-top: 10px;
+    padding-left: 67px;
+    width: 36px;
+    height: 13px;
+    font: normal normal medium 10px/11px Roboto;
+    letter-spacing: 0px;
+    color: $light_black;
+    text-transform: capitalize;
+    opacity: 1;
+}
+
+.emailbox {
+    margin-left: 67px;
+    width: 285px;
+    height: 35px;
+    margin-right: 65px;
+    margin-top: 10px;
+    background: $pale_white 0% 0% no-repeat padding-box;
+    border: 1px solid $border_clr;
+    border-radius: 2px;
+    opacity: 1;
+}
+
+button[type="submit"] {
+    background: $redish_brown 0% 0% no-repeat padding-box;
+    border-radius: 3px;
+    opacity: 1;
+    width: 285px;
+    height: 37px;
+    margin-left: 67px;
+    margin-top: 35px;
+    font: normal normal normal 15px/20px Roboto;
+    letter-spacing: 0px;
+    color: $pale_white;
+    opacity: 1;
+
+}
