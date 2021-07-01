@@ -21,7 +21,7 @@
                 <input type="email"  class="emailbox" autocomplete="off" required v-model="email" id="Email-input" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
             </div>
             <div class="btn-section">
-                <button type="submit" id="btn-group" @click="handlesubmit();">Reset Password</button>
+                <button type="submit" id="btn-group" @click="handlesubmit();">Send Recovery Link</button>
             </div>
         </form>
     </div>
@@ -48,6 +48,7 @@ export default {
             service.userForgot(userData).then(response => {
                 if (response.status == 200) {
                     alert("check your mail for reset-password... ");
+                    this.$router.push('/reset');
                     return response;
                 }
             }).catch(error => {
