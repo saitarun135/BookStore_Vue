@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import Register from './Pages/Register.vue'
 import Login from './Pages/Login.vue'
 import Forgot from './Pages/Forgot.vue'
+import Reset from './Pages/Reset.vue'
+import Dashboard from '../components/Dashboard.vue'
 Vue.use(Router)
 export  default new Router({
     mode:'history',
@@ -18,6 +20,14 @@ export  default new Router({
         {
             path:'/forgot',
             component:Forgot
+        },
+        {
+            path:'/reset',
+            component:Reset
+        },
+        {
+            path:'/dashboard',
+            component:Dashboard
         }  
         ]
 })
