@@ -14,7 +14,7 @@
                 <input type="password"  class="passwordbox" autocomplete="off" required v-model="confirmPassword" id="confirm-input" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$" >
             </div>
             <div class="btn-section">
-                <button type="submit" id="btn-group" @click="handlesubmit();">Update</button>
+                <button type="submit" id="btn-group" @click="handlesubmit();">submit</button>
             </div>
         </form>
     </div>
@@ -41,6 +41,7 @@ export default{
             }
             service.userReset(userData).then(response=>{
                 alert("password updated successfully");
+                this.$router.push("/login");
                 return response;
             }).catch(error=>{
                 alert("password not match");
