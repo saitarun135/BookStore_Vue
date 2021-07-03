@@ -1,0 +1,63 @@
+@import "colors";
+.navbar-default {
+    background: $redish_brown;
+    height: 60px;
+}
+li .brand{
+    margin-top: 5px;
+    margin-left: -1250px;
+    width: 91px;
+    height: 26px;
+    text-align: left;
+    font: normal normal normal 18px/26px Roboto;
+    letter-spacing: 0px;
+    color: $pale_white;
+    text-transform: capitalize;
+    opacity: 1;
+}
+img {
+    background: transparent 0% 0% no-repeat padding-box;
+    opacity: 1;
+    width: 31px;
+    height: 24px;
+    margin-top: -12px;
+    margin-left: 194px;
+}
+.input-group{
+    margin-left:345px;
+}
+input[type="search"]{
+    width: 490px;
+    height: 33px;
+    margin-top:-40px;
+    background: #FCFCFC 0% 0% no-repeat padding-box;
+    border-radius: 3px;
+    margin-left:3px;
+    opacity: 1;
+}
+
+
+.input-group {
+  display: flex;
+  align-items: center; // to center the icon vertically
+}
+
+.input-group .fas {
+  position: absolute;
+  margin-left: 8px;
+
+}
+.fa-search{
+    margin-top:-40px;
+     opacity: 1;
+}
+.input-group input[type="search"] {
+  padding: 8px 8px 8px 32px;
+}
+a i{
+  width: 15px;
+  height: 15px;
+  color:white;
+  opacity: 1;
+}
+ 
