@@ -4,7 +4,8 @@ import Register from './Pages/Register.vue'
 import Login from './Pages/Login.vue'
 import Forgot from './Pages/Forgot.vue'
 import Reset from './Pages/Reset.vue'
-import Dashboard from '../components/Dashboard.vue'
+import Dashboard from './components/Dashboard.vue'
+import DisplayBooks from './components/DisplayBooks.vue'
 Vue.use(Router)
 export  default new Router({
     mode:'history',
@@ -22,12 +23,16 @@ export  default new Router({
             component:Forgot
         },
         {
-            path:'/reset',
+            path:'/reset/:token',
             component:Reset
         },
         {
             path:'/dashboard',
-            component:Dashboard
-        }  
-        ]
+            component:Dashboard,
+            children:[{
+                path:'/displaybooks',
+                component:DisplayBooks
+            }]   
+        },
+    ]      
 })
