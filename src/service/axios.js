@@ -6,8 +6,11 @@ export default class AxiosService{
     postData(url,data){
         return axios.post(url,data).then(response =>{
             return response;
-        }).catch(error=>{
-            return error;
+        })
+    }
+    getData(url,data){
+        return axios.get(url,data).then(response =>{
+            return response;
         })
     }
 }
