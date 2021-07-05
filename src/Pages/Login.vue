@@ -19,12 +19,13 @@
                     <i class="bi bi-eye-slash" id="togglePassword" @click="togglePassword();"></i>
                 </div>
                 <div class="forget-section">
-                    <a href="/forgot">Forgot-password</a>
+                    <router-link to="/forgot">
+                        Forgot-password</router-link>
                 </div>
                 <div class="btn-section">
                     <button type="submit" @click="handlesubmit();" class="login-btn">Login</button>
                 </div>
-               
+
             </form>
         </div>
     </div>
@@ -47,7 +48,7 @@ export default {
             isPasswordVisible: false,
             isSignup: false,
             flag: true,
-            sideContent:'Online Book Shopping'
+            sideContent: 'Online Book Shopping'
         }
     },
     methods: {
@@ -66,6 +67,8 @@ export default {
             service.userLogin(userData).then(response => {
                 if (response.status == 200) {
                     alert("user logged in... ");
+                     localStorage.setItem('token', response.data.token);
+                    this.$router.push('/dashboard');
                     return response;
                 }
             }).catch(error => {
