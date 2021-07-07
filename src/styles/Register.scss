@@ -151,7 +151,7 @@ input[type="password"]{
     width: 252px;
     height: 35px;
     margin-left: 69px;
-    margin-bottom: 22px;
+    margin-bottom: 5px;
 }
 .btn-section{
     margin-left: 69px;
@@ -173,7 +173,9 @@ input[type="password"]{
     cursor: pointer;
     position: relative;
 }
-
+.headings #login{
+    color:black;
+}
 
 .signin.active,
 .signup.active {
@@ -187,4 +189,16 @@ input[type="password"]{
     width: 252px;
     height: 35px;
     background:$pale_white 0% 0% no-repeat padding-box;
+}
+.role-btns {
+margin-left:69px;
+}
+#admin{
+    margin-left:15px;
+}
+.radio-label{
+    padding-left:3px;
+}
+.admin-label{
+    padding-left:3px;
 }
