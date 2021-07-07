@@ -26,11 +26,11 @@
                     <p>MobileNumber</p>
                     <input type="tel" class="telephone" autocomplete="off" v-model="mobile" id="tel" pattern="^\d{10}$" required>
                 </div>
-               <div class="role-btns">
-                    <input type="radio" id="user" value="user" name="role" v-model="role" >
-                    <label for="user" class="radio-label">user</label>
-                    <input type="radio" id="admin" value="admin" name="role" v-model="role">
-                    <label for="admin">admin</label>
+                <div class="role-btns">
+                    <input type="radio" id="user" value="User" name="role" v-model="role">
+                    <label for="user" class="radio-label">User</label>
+                    <input type="radio" id="admin" value="Admin" name="role" v-model="role">
+                    <label for="admin" class="admin-label">Admin</label>
                 </div>
                 <button class="btn-section" id="btn" type="submit">Signup</button>
             </form>
@@ -41,12 +41,11 @@
 </template>
 
 <script>
-
 import service from '../service/User'
 export default {
     name: 'Register',
     components: {
-       Login: () => import('./Login.vue')
+        Login: () => import('./Login.vue')
     },
     data() {
         return {
@@ -54,7 +53,7 @@ export default {
             email: '',
             password: '',
             mobile: '',
-            role:'',
+            role: '',
             password_type: "password",
             isLogin: false,
             isPasswordVisible: false,
@@ -76,7 +75,7 @@ export default {
                 email: this.email,
                 password: this.password,
                 mobile: this.mobile,
-                role:this.role
+                role: this.role
             }
             service.userRegister(userData).then(response => {
                 if (response.status == 201) {
@@ -95,5 +94,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    @import "@/styles/Register.scss";
+@import "@/styles/Register.scss";
 </style>
