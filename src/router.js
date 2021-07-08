@@ -6,6 +6,8 @@ import Forgot from './Pages/Forgot.vue'
 import Reset from './Pages/Reset.vue'
 import Dashboard from './components/Dashboard.vue'
 import DisplayBooks from './components/DisplayBooks.vue'
+import AdminDashboard from './Admin/AdminDashboard.vue'
+import CreateBook from './Admin/CreateBook.vue'
 Vue.use(Router)
 export  default new Router({
     mode:'history',
@@ -26,13 +28,24 @@ export  default new Router({
             path:'/reset/:token',
             component:Reset
         },
+       {
+           path:'/adminDashboard',
+           component:AdminDashboard,
+           children:[{
+            path:'/createBook',
+            component:CreateBook
+           }]
+       },
+      
         {
             path:'/dashboard',
             component:Dashboard,
             children:[{
                 path:'/displaybooks',
                 component:DisplayBooks
-            }]   
+            },
+        ]   
         },
+      
     ]      
 })
