@@ -1,0 +1,116 @@
+@import "colors";
+.navbar-default {
+    background: $redish_brown;
+    height: 60px;
+}
+li .brand{
+   
+    margin-top: 5px;
+    margin-left: -1210px;
+    width: 91px;
+    height: 26px;
+    text-align: left;
+    font: normal normal normal 18px/26px Roboto;
+    letter-spacing: 0px;
+    color: $pale_white;
+    text-transform: capitalize;
+    opacity: 1;
+}
+img {
+    background: transparent 0% 0% no-repeat padding-box;
+    opacity: 1;
+    width: 31px;
+    height: 24px;
+    margin-top: -12px;
+    margin-left: 194px;
+}
+.input-group{
+    margin-left:395px;
+}
+input[type="search"]{
+    width: 490px;
+    height: 33px;
+    margin-top:-40px;
+    background: #FCFCFC 0% 0% no-repeat padding-box;
+    border-radius: 3px;
+    margin-left:3px;
+    opacity: 1;
+}
+
+
+.input-group {
+  display: flex;
+  align-items: center; // to center the icon vertically
+}
+
+.input-group .fas {
+  position: absolute;
+  margin-left: 8px;
+
+}
+.fa-search{
+    margin-top:-40px;
+     opacity: 1;
+}
+.input-group input[type="search"] {
+  padding: 8px 8px 8px 32px;
+}
+a i{
+  width: 15px;
+  height: 15px;
+  color:$white;
+  opacity: 1;
+}
+ #right-bar{
+  position: absolute;
+  display: flex;
+  right: 0;
+  flex-direction: row !important;  
+  gap: 3.5rem;
+  margin-right: 15rem;
+  margin-top: 20px;
+
+}
+.profile-content{
+  margin-top:15px;
+  margin-left:-86px;
+  letter-spacing: 0.45px;
+  color: $pale_white;
+  opacity: 1;
+  position: relative;
+}
+.cart-content{
+  margin-top:15px;
+  margin-left:-75px;
+  letter-spacing: 0.75px;
+  color: $pale_white;
+  opacity: 1;
+  position: relative;
+}
+.mid-body {
+  display:flex;
+}
+.options{
+  margin-top:26px;
+  margin-left:69%;
+  height:25px;
+}
+h6{
+  margin-top:26px;
+  margin-left:110px;
+  text-transform: capitalize;
+ font-size: larger;
+ font: 20px;
+}
+.items{
+  color:$grey;
+  font-size: 12px;
+}
+.create-book .createBook{
+  text-transform: capitalize;
+  font-size: larger;
+  font: 20px;
+  margin-left:110px;
+  cursor:pointer;
+  font-weight: 500;
+}
