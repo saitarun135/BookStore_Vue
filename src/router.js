@@ -8,6 +8,7 @@ import Dashboard from './components/Dashboard.vue'
 import DisplayBooks from './components/DisplayBooks.vue'
 import AdminDashboard from './Admin/AdminDashboard.vue'
 import CreateBook from './Admin/CreateBook.vue'
+import OrderPlace from './components/OrderPlace.vue'
 Vue.use(Router)
 export  default new Router({
     mode:'history',
@@ -28,6 +29,10 @@ export  default new Router({
             path:'/reset/:token',
             component:Reset
         },
+        {
+            path:'/orderSuccess',
+            component:OrderPlace
+        },
        {
            path:'/adminDashboard',
            component:AdminDashboard,
@@ -36,7 +41,7 @@ export  default new Router({
             component:CreateBook
            }]
        },
-      
+     
         {
             path:'/dashboard',
             component:Dashboard,
