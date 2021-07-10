@@ -26,12 +26,12 @@
                     <p>MobileNumber</p>
                     <input type="tel" class="telephone" autocomplete="off" v-model="mobile" id="tel" pattern="^\d{10}$" required>
                 </div>
-                <div class="role-btns">
+                <!-- <div class="role-btns">
                     <input type="radio" id="user" value="User" name="role" v-model="role">
                     <label for="user" class="radio-label">User</label>
                     <input type="radio" id="admin" value="Admin" name="role" v-model="role">
                     <label for="admin" class="admin-label">Admin</label>
-                </div>
+                </div> -->
                 <button class="btn-section" id="btn" type="submit">Signup</button>
             </form>
         </div>
@@ -53,7 +53,7 @@ export default {
             email: '',
             password: '',
             mobile: '',
-            role: '',
+            // role: '',
             password_type: "password",
             isLogin: false,
             isPasswordVisible: false,
@@ -75,7 +75,7 @@ export default {
                 email: this.email,
                 password: this.password,
                 mobile: this.mobile,
-                role: this.role
+                // role: this.role
             }
             service.userRegister(userData).then(response => {
                 if (response.status == 201) {
