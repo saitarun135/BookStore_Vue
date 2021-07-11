@@ -17,12 +17,12 @@
             <button v-if="flag" class="btn-grp" type="submit" @click="handlesubmit();Togglebtn();">close</button>
         </div>
         <div class="buttons">
-            <div class="button-groups">
-                <button type="button" @click="toggle(book.id);flip(book.id);" v-if="state==true" class="AddBag">Add to Bag</button>
-                <button v-if="state==true" class="wishlist">wishlist</button>
+            <div class="button-groups"  v-if="!addedBooks.includes(book.id)">
+                <button type="submit"  @click="handleCart(book.id);toggle(book.id);addedBooks.push(book.id)"  class="AddBag">Add to Bag</button>
+                <button  class="wishlist">wishlist</button>
             </div>
-            <div v-if="state==false" class="AddedBag">
-                <button class="big-btn">Added to Bag</button>
+            <div class="AddedBag" v-else>
+            <button class="big-btn" @click="removeFromCart(book.id);addedBooks=addedBooks.filter(id=>id!==book.id)">Added to Bag</button>
             </div>
         </div>
     </div>
@@ -45,6 +45,7 @@ export default {
             flag: true,
             state: true,
             clickedCard: '',
+            addedBooks:[],
             books: [{
                 id: 0,
                 file: 'https://images-na.ssl-images-amazon.com/images/I/41MdP5Tn0wL._SX258_BO1,204,203,200_.jpg',
@@ -54,6 +55,14 @@ export default {
             }, ]
         }
     },
+     watch:{
+    addedBooks:{
+            handler(val){
+               this.$emit('update-books-count',val.length)
+             },
+             deep:true
+          }
+        },
     methods: {
         toggle(id) {
             this.clickedCard = id;
@@ -72,6 +81,22 @@ export default {
                 this.books.push(...response.data);
             })
         },
+        handleCart(bookId){
+            let userData={
+                id: bookId,
+            }
+            service.userUpdateCart(userData).then(response=>{
+                return response;
+            })
+        },
+        removeFromCart(bookId){
+            let userData={
+                id:bookId,
+            }
+            service.userRemoveFromCart(userData).then(response=>{
+                return response;
+            })
+        }
     }
 }
 </script>
