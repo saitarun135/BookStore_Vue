@@ -65,9 +65,9 @@ export default {
                 password: this.password,
             }
             service.userLogin(userData).then(response => {
-                if (response.status == 200) {
+                if (response.status== 200) {
                     alert("user logged in... ");
-                     localStorage.setItem('token', response.data.token);
+                    localStorage.setItem('token', response.data.token);
                     this.$router.push('/dashboard');
                     return response;
                 }
