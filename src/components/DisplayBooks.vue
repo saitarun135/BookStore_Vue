@@ -1,9 +1,9 @@
 <template>
 <div class="carddisplay-section">
-    <div v-for="book in books" :key="book.id" class="card">
+    <div v-for="book in books" :key="book.id" class="card book">
         <div class="image-section">
             <div class="image-container">
-                <img v-bind:src="'storage'+'/'+'app'+'/'+book.file" /> 
+                <img  v-bind:src="book.file" />
             </div>
         </div>
         <div class="title-section">
@@ -13,10 +13,18 @@
             by {{book.author}}
         </div>
         <div class="price-section">
-            Rs. {{book.price}}<label>(2000)</label>
-                <button v-if="flag" type="submit" @click="handlesubmit();Togglebtn();">close</button>
+            Rs. {{book.price}}<label class="default">(2000)</label>
+            <button v-if="flag" class="btn-grp" type="submit" @click="handlesubmit();Togglebtn();">close</button>
         </div>
-
+        <div class="buttons">
+            <div class="button-groups"  v-if="!addedBooks.includes(book.id)">
+                <button type="submit"  @click="handleCart(book.id);toggle(book.id);addedBooks.push(book.id)"  class="AddBag">Add to Bag</button>
+                <button  class="wishlist">wishlist</button>
+            </div>
+            <div class="AddedBag" v-else>
+            <button class="big-btn" @click="removeFromCart(book.id);addedBooks=addedBooks.filter(id=>id!==book.id)">Added to Bag</button>
+            </div>
+        </div>
     </div>
 </div>
 </template>
@@ -24,27 +32,70 @@
 <script>
 import service from '../service/User'
 export default {
+      mounted() {
+            service.userDisplayBooks().then(response => {  
+                this.books.push(...response.data); 
+                return response; 
+            })
+        },
     data() {
         return {
+            isActive:true,
+            result: 0,
+            authorPrefix: 'by',
+            pricePrefix: 'Rs.',
+            defaultStrikePrice: '(2000)',
+            buttonValue: 'close',
             flag: true,
-            books: [{
-                id: 1,
-                file: 'i want to display image',
-                name: 'Dont Make me think',
-                author: 'sai',
-                price: '1500'
-            }, ]
+            state: true,
+            addedBooks:[],
+            clickedCard: '',
+            books: [
+          
+            ]
         }
     },
+    watch:{
+    addedBooks:{
+            handler(val){
+               this.$emit('update-books-count',val.length)
+             },
+             deep:true
+          }
+        },
     methods: {
+        toggleClass: function(event){
+            this.isActive = !this.isActive;
+            return event;
+        },
+         toggle(id) {
+            this.clickedCard = id;
+            console.log(this.clickedCard);
+          
+        },
+        flip() {
+            this.state = !this.state;
+        },
         Togglebtn() {
             this.flag = !this.flag;
         },
-        handlesubmit() {
-            service.userDisplayBooks().then(response => {
-                this.books.push(...response.data);
+  
+        handleCart(bookId){
+            let userData={
+                id: bookId,
+            }
+            service.userUpdateCart(userData).then(response=>{
+                return response;
             })
         },
+        removeFromCart(bookId){
+            let userData={
+                id:bookId,
+            }
+            service.userRemoveFromCart(userData).then(response=>{
+                return response;
+            })
+        }
     }
 }
 </script>
