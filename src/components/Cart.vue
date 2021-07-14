@@ -67,22 +67,22 @@
                     <div class="radio-btns flex-container">
                         <div>
                             <input type="radio" id="Home" value="Home" name="type" v-model="type">
-                           <div class="first-radio"> <label class="home" for="Home">Home</label></div>
+                            <div class="first-radio"> <label class="home" for="Home">Home</label></div>
                         </div>
 
                         <div>
-                            <input type="radio" id="Work" value="Work" name="type" v-model="type">
-                           <div class="second-radio"> <label for="Work" class="work-label">Work</label></div>
+                            <input class="work-round" type="radio" id="Work" value="Work" name="type" v-model="type">
+                            <div class="second-radio"> <label for="Work" class="work-label">Work</label></div>
                         </div>
 
                         <div>
-                            <input type="radio" id="Other" value="Other" name="type" v-model="type">
+                            <input class="other-round" type="radio" id="Other" value="Other" name="type" v-model="type">
                             <div class="third-radio"><label for="Other">Other</label></div>
                         </div>
                     </div>
 
                     <div class="btn-continue">
-                        <button type="submit" @click="handlesubmit();" class="continue">continue</button>
+                        <button type="submit" @click="handlesubmit();handleMail();" class="continue">continue</button>
                     </div>
                 </div>
             </form>
@@ -94,25 +94,31 @@
 <script>
 import service from '../service/User'
 export default {
-    created() {
-    service.userDisplayCart().then(response => {
-      this.books = response.data;
-    })
+   created() {
+        if (localStorage.getItem("reloaded")) {
+            localStorage.removeItem("reloaded");
+        } else {
+            localStorage.setItem("reloaded", "1");
+            location.reload();
+        }
+        service.userDisplayCart().then(response => {
+            this.books = response.data;
+        })
     },
     data() {
         return {
             flag: true,
             hide: true,
             booksCount: 0,
-            name:'',
-            phoneNumber:'',
-            pincode:'',
-            locality:'',
-            city:'',
-            address:'',
-            landmark:'',
-            type:'',
-            books: [ ]
+            name: '',
+            phoneNumber: '',
+            pincode: '',
+            locality: '',
+            city: '',
+            address: '',
+            landmark: '',
+            type: '',
+            books: []
         }
     },
     methods: {
@@ -122,27 +128,34 @@ export default {
         Togglebtn() {
             this.flag = !this.flag;
         },
-        handlesubmit(){
-             let userData = {
-                 name:this.name,
-            phoneNumber:this.phoneNumber,
-            pincode:this.pincode,
-            locality:this.locality,
-            city:this.city,
-            address:this.address,
-            landmark:this.landmark,
-            type:this.type,
+        handlesubmit() {
+            let userData = {
+                name: this.name,
+                phoneNumber: this.phoneNumber,
+                pincode: this.pincode,
+                locality: this.locality,
+                city: this.city,
+                address: this.address,
+                landmark: this.landmark,
+                type: this.type,
             }
             service.customerRegister(userData).then(response => {
                 alert("user registered successfully");
+               
                 return response;
             })
-        
+        },
+        handleMail(){
+            service.confirmMail().then(response=>{
+                alert("order placed successfully");
+                 this.$router.push({path: '/ordersuccess'});
+                 return response;
+            })
         }
     }
 }
 </script>
 
 <style lang="scss" scoped>
-    @import "@/styles/Cart.scss";
+@import "@/styles/Cart.scss";
 </style>
