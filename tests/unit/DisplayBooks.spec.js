@@ -4,7 +4,7 @@
 * @file : DisplayBooks.spec.js
 * @author : Sai Tarun <saitarun800@gmail.com>
 * @version : 1.0
-* @since : 05/07/2021
+* @since : 07/14/2021
 *
 **************************************************************************/
 import DisplayBooks from '../../src/components/DisplayBooks.vue';
@@ -14,7 +14,9 @@ describe('DisplayBooks.vue', ()=>{
     let authorPrefix='by';
     let pricePrefix='Rs.';
     let defaultStrikePrice='(2000)';
-    let buttonValue='close';
+    let buttonValue='Add to Bag';
+    let buttonWishlist='wishlist';
+    let buttonAddedBag='Added to Bag';
     beforeEach(() => {
         const localVue = createLocalVue();
         wrapper = shallowMount(DisplayBooks, localVue);
@@ -52,7 +54,13 @@ describe('DisplayBooks.vue', ()=>{
     it('has a button',()=>{
         expect(wrapper.find('.btn-grp')).toBeTruthy();
     })
-    it('has a button content matches',()=>{
-        expect(wrapper.vm.buttonValue).toMatch('close');
+    it('has a Add to bag content matches',()=>{
+        expect(wrapper.vm.buttonValue).toMatch('Add to Bag');
+    })
+    it('has a wishlist button matches',()=>{
+        expect(wrapper.vm.buttonWishlist).toMatch('wishlist');
+    })
+    it('has a Added to Bag button matches',()=>{
+        expect(wrapper.vm.buttonAddedBag).toMatch('Added to Bag');
     })
 })
