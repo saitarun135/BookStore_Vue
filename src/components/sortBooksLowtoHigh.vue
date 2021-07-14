@@ -34,7 +34,12 @@
 import service from '../service/User'
 
 export default {
- 
+    created() {
+            service.userDisplayBooksLowtoHigh().then(response => {
+                this.books.push(...response.data);  
+                console.log(this.response);   
+            })
+        },
     data() {
         return {
             result: 0,
@@ -76,12 +81,12 @@ export default {
         Togglebtn() {
             this.flag = !this.flag;
         },
-        mounted() {
-            service.userDisplayBooksLowtoHigh().then(response => {
-                this.books.push(...response.data);  
-                console.log(this.response);   
-            })
-        },
+        // mounted() {
+        //     service.userDisplayBooksLowtoHigh().then(response => {
+        //         this.books.push(...response.data);  
+        //         console.log(this.response);   
+        //     })
+        // },
         handleCart(bookId){
             let userData={
                 id: bookId,
