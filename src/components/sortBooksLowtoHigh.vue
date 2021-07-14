@@ -3,7 +3,7 @@
     <div v-for="book in books" v-bind:key="book.id" class="card book">
         <div class="image-section">
             <div class="image-container">
-                <img  v-bind:src="book.file" />
+                <img v-bind:src="book.file" />
             </div>
         </div>
         <div class="title-section">
@@ -15,18 +15,17 @@
         <div class="price-section">
             Rs. {{book.price}}<label class="default">(2000)</label>
         </div>
-         <div class="buttons">
-            <div class="button-groups"  v-if="!addedBooks.includes(book.id)">
-                <button type="submit"  @click="handleCart(book.id);toggle(book.id);addedBooks.push(book.id)"  class="AddBag">Add to Bag</button>
-                <button  class="wishlist">wishlist</button>
+        <div class="buttons">
+            <div class="button-groups" v-if="!addedBooks.includes(book.id)">
+                <button type="submit" @click="handleCart(book.id);toggle(book.id);addedBooks.push(book.id)" class="AddBag">Add to Bag</button>
+                <button class="wishlist">wishlist</button>
             </div>
             <div class="AddedBag" v-else>
-            <button class="big-btn" @click="removeFromCart(book.id);addedBooks=addedBooks.filter(id=>id!==book.id)">Added to Bag</button>
+                <button class="big-btn" @click="removeFromCart(book.id);addedBooks=addedBooks.filter(id=>id!==book.id)">Added to Bag</button>
             </div>
         </div>
     </div>
-    </div>
-
+</div>
 </template>
 
 <script>
@@ -34,11 +33,14 @@ import service from '../service/User'
 
 export default {
     created() {
-            service.userDisplayBooksLowtoHigh().then(response => {
-                this.books.push(...response.data);  
-                console.log(this.response);   
-            })
-        },
+        service.userDisplayBooksLowtoHigh().then(response => {
+            this.books.push(...response.data);
+            console.log(this.response);
+        }).catch(error=>{
+            alert("error while sorting");
+            return error;
+        })
+    },
     data() {
         return {
             result: 0,
@@ -46,57 +48,57 @@ export default {
             pricePrefix: 'Rs.',
             defaultStrikePrice: '(2000)',
             buttonValue: 'close',
-             buttonBag: 'Add to Bag',
-            buttonWishlist:'wishlist',
-            buttonAddedBag:'Added to Bag',
+            buttonBag: 'Add to Bag',
+            buttonWishlist: 'wishlist',
+            buttonAddedBag: 'Added to Bag',
             flag: true,
             state: true,
             clickedCard: '',
-            addedBooks:[],
+            addedBooks: [],
             books: []
         }
     },
-     watch:{
-    addedBooks:{
-            handler(val){
-               this.$emit('update-books-count',val.length)
-             },
-             deep:true
-          }
-        },
+    watch: {
+        addedBooks: {
+            handler(val) {
+                this.$emit('update-books-count', val.length)
+            },
+            deep: true
+        }
+    },
     methods: {
-         toggle(id) {  
+        toggle(id) {
             this.clickedCard = id;
             // this.card.content = this.notes.filter((note) => note.id === id);
-          console.log(this.clickedCard);
+            console.log(this.clickedCard);
         },
-    
+
         flip() {
             this.state = !this.state;
         },
         Togglebtn() {
             this.flag = !this.flag;
         },
-        // mounted() {
-        //     service.userDisplayBooksLowtoHigh().then(response => {
-        //         this.books.push(...response.data);  
-        //         console.log(this.response);   
-        //     })
-        // },
-        handleCart(bookId){
-            let userData={
+        handleCart(bookId) {
+            let userData = {
                 id: bookId,
             }
-            service.userUpdateCart(userData).then(response=>{
+            service.userUpdateCart(userData).then(response => {
                 return response;
+            }).catch(error=>{
+                alert('error while adding to the cart');
+                return error;
             })
         },
-        removeFromCart(bookId){
-            let userData={
-                id:bookId,
+        removeFromCart(bookId) {
+            let userData = {
+                id: bookId,
             }
-            service.userRemoveFromCart(userData).then(response=>{
+            service.userRemoveFromCart(userData).then(response => {
                 return response;
+            }).catch(error=>{
+                alert("error while removing from the cart");
+                return error;
             })
         }
     }
