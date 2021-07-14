@@ -14,7 +14,6 @@
         </div>
         <div class="price-section">
             Rs. {{book.price}}<label class="default">(2000)</label>
-            <!-- <button v-if="flag" class="btn-grp" type="submit" @click="handlesubmit();Togglebtn();">close</button> -->
         </div>
          <div class="buttons">
             <div class="button-groups"  v-if="!addedBooks.includes(book.id)">
@@ -47,17 +46,14 @@ export default {
             pricePrefix: 'Rs.',
             defaultStrikePrice: '(2000)',
             buttonValue: 'close',
+             buttonBag: 'Add to Bag',
+            buttonWishlist:'wishlist',
+            buttonAddedBag:'Added to Bag',
             flag: true,
             state: true,
             clickedCard: '',
-             addedBooks:[],
-            books: [{
-                // id: 0,
-                // file: 'https://images-na.ssl-images-amazon.com/images/I/41MdP5Tn0wL._SX258_BO1,204,203,200_.jpg',
-                // name: 'Default Card',
-                // author: 'Sai',
-                // price: '..'
-            }, ]
+            addedBooks:[],
+            books: []
         }
     },
      watch:{
