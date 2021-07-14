@@ -14,7 +14,6 @@
         </div>
         <div class="price-section">
             Rs. {{book.price}}<label class="default">(2000)</label>
-            <button v-if="flag" class="btn-grp" type="submit" @click="handlesubmit();Togglebtn();">close</button>
         </div>
         <div class="buttons">
             <div class="button-groups"  v-if="!addedBooks.includes(book.id)">
@@ -34,7 +33,11 @@
 import service from '../service/User'
 
 export default {
-
+ created() {
+            service.userDisplayBooksHightoLow().then(response => {
+                this.books.push(...response.data);
+            })
+        },
     data() {
         return {
             result: 0,
@@ -46,13 +49,10 @@ export default {
             state: true,
             clickedCard: '',
             addedBooks:[],
-            books: [{
-                id: 0,
-                file: 'https://images-na.ssl-images-amazon.com/images/I/41MdP5Tn0wL._SX258_BO1,204,203,200_.jpg',
-                name: 'Default card',
-                author: 'sai',
-                price: '...'
-            }, ]
+             buttonBag: 'Add to Bag',
+            buttonWishlist:'wishlist',
+            buttonAddedBag:'Added to Bag',
+            books: []
         }
     },
      watch:{
@@ -76,11 +76,7 @@ export default {
         Togglebtn() {
             this.flag = !this.flag;
         },
-        handlesubmit() {
-            service.userDisplayBooksHightoLow().then(response => {
-                this.books.push(...response.data);
-            })
-        },
+       
         handleCart(bookId){
             let userData={
                 id: bookId,
