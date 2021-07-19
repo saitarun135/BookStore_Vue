@@ -1,5 +1,6 @@
 <template>
 <div class="main">
+
     <div class="first-section">
         <div class="content">
             <h5>My Cart({{books.length}})</h5>
@@ -7,7 +8,7 @@
         <div v-for="book in books" :key="book.id" class="container">
 
             <div class="mid-section">
-                <img v-bind:src="book.file" alt="not found">
+                <img class="img-section" v-bind:src="book.file" alt="not found">
                 <p class="title-section">{{book.name}}</p>
             </div>
             <div class="author-section">
@@ -77,12 +78,12 @@
 
                         <div>
                             <input class="other-round" type="radio" id="Other" value="Other" name="type" v-model="type">
-                            <div class="third-radio"><label for="Other">Other</label></div>
+                            <div class="third-radio"><label class="other-label" for="Other">Other</label></div>
                         </div>
                     </div>
 
                     <div class="btn-continue">
-                        <button type="submit" @click="handlesubmit();handleMail();" class="continue">continue</button>
+                        <button type="submit" @click="handlesubmit();" class="continue">continue</button>
                     </div>
                 </div>
             </form>
@@ -92,7 +93,7 @@
 </template>
 
 <script>
-import service from '../service/User'
+import service from '../service/User';
 export default {
    created() {
         if (localStorage.getItem("reloaded")) {
@@ -118,7 +119,16 @@ export default {
             address: '',
             landmark: '',
             type: '',
-            books: []
+            books: [],
+            cart:'MyCart',
+            nameField:'Name',
+            phoneField:'Phone Number',
+            pincodeField:'PinCode',
+            AddressField:'Address',
+            localityField:'Locality',
+            cityField:'CityTown',
+            landmarkField:'LandMark',
+            orderNumber:''
         }
     },
     methods: {
@@ -140,18 +150,15 @@ export default {
                 type: this.type,
             }
             service.customerRegister(userData).then(response => {
-                alert("user registered successfully");
-               
+                this.$router.push({path: '/ordersuccess'});
                 return response;
+
+            }).catch(error=>{
+                alert("invalid customer address");
+                return error;
             })
         },
-        handleMail(){
-            service.confirmMail().then(response=>{
-                alert("order placed successfully");
-                 this.$router.push({path: '/ordersuccess'});
-                 return response;
-            })
-        }
+       
     }
 }
 </script>
