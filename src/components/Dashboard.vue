@@ -25,8 +25,6 @@
         </ul>
     </div>
     <div class="mid-body">
-        <h6>Books<span class="items">(128items)</span></h6>
-
         <select class="options" @change="applyOption">
             <option disabled value="">Sort by relevance</option>
             <option value="HighToLow">price:High to Low</option>
@@ -37,7 +35,7 @@
     <div v-if="flam==false">
         <h2>Hello</h2>
     </div>
-    <DisplayBooks v-show="flag==='noOrder' && shownComponent==='DisplayBooks'" @update-books-count="(n)=>booksCount=n"/>
+    <DisplayBooks v-show="flag==='noOrder' && shownComponent==='DisplayBooks'" @update-books-count="(n)=>booksCount=n" />
     <Cart v-show=" shownComponent==='Cart'"   />
     <sortBooksLowtoHigh v-show="flag==='lowToHigh'" @update-books-count="(n)=>booksCount=n" />
     <sortBooksHightoLow v-show="flag==='highToLow'" @update-books-count="(n)=>booksCount=n" />
