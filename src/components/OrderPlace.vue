@@ -7,10 +7,10 @@
     <div class="title-container">
         <p>Order placed Successfully</p>
     </div>
-    <div class="message-section">
-        <p>hurray!!!your order is confirmed the order id is #123456
-            save the order id for further communication..</p>
+    <div class="message-section order-id">
+        <p>hurray!!! your order is confirmed the order id is {{orderNumber}} save the order id for further communication..</p>
     </div>
+
     <div class="title-section">
         <div class="email-us">
             <p>Email-us</p>
@@ -36,13 +36,29 @@
     </div>
 </div>
 </template>
-
 <script>
+import service from '../service/User';
 export default {
-
+    name: 'OrderPlace',
+    data() {
+        return {
+            successTitle: 'Order placed Successfully',
+            adminEmailSection: 'Email-us',
+            adminContactSection: 'Contact-us',
+            adminAddressSection: 'Address',
+            adminEmail: 'admin@bookstore.com',
+            adminMobNum: '+918163475881',
+            orderNumber: ''
+        }
+    },
+    created() {
+        service.confirmMail().then(response =>
+            (this.orderNumber = response.data.orderID)
+        )
+    }
 }
 </script>
 
 <style lang="scss" scoped>
-  @import "@/styles/OrderPlace.scss";
+@import "@/styles/OrderPlace.scss";
 </style>
