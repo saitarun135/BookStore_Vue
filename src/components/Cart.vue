@@ -1,6 +1,5 @@
 <template>
 <div class="main">
-
     <div class="first-section">
         <div class="content">
             <h5>My Cart({{books.length}})</h5>
@@ -95,7 +94,7 @@
 <script>
 import service from '../service/User';
 export default {
-   created() {
+    created() {
         if (localStorage.getItem("reloaded")) {
             localStorage.removeItem("reloaded");
         } else {
@@ -120,15 +119,15 @@ export default {
             landmark: '',
             type: '',
             books: [],
-            cart:'MyCart',
-            nameField:'Name',
-            phoneField:'Phone Number',
-            pincodeField:'PinCode',
-            AddressField:'Address',
-            localityField:'Locality',
-            cityField:'CityTown',
-            landmarkField:'LandMark',
-            orderNumber:''
+            cart: 'MyCart',
+            nameField: 'Name',
+            phoneField: 'Phone Number',
+            pincodeField: 'PinCode',
+            AddressField: 'Address',
+            localityField: 'Locality',
+            cityField: 'CityTown',
+            landmarkField: 'LandMark',
+            orderNumber: ''
         }
     },
     methods: {
@@ -150,15 +149,15 @@ export default {
                 type: this.type,
             }
             service.customerRegister(userData).then(response => {
-                this.$router.push({path: '/ordersuccess'});
+                this.$router.push({ path: '/ordersuccess' });
                 return response;
 
-            }).catch(error=>{
+            }).catch(error => {
                 alert("invalid customer address");
                 return error;
             })
         },
-       
+
     }
 }
 </script>
