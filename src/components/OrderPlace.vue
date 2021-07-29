@@ -8,7 +8,7 @@
         <p>Order placed Successfully</p>
     </div>
     <div class="message-section order-id">
-        <p>hurray!!! your order is confirmed the order id is {{orderNumber}} save the order id for further communication..</p>
+        <p>hurray!!! your order is confirmed the order id is #{{orderNumber}} save the order id for further communication..</p>
     </div>
 
     <div class="title-section">

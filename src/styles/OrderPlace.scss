@@ -1,11 +1,4 @@
-.btn{
-    background:#3371B5;
-    height: 35px;
-    color:white;
-    opacity:1;
-    margin-left:43%;
-    margin-top:2%;
-}
+@import "colors";
 .image-container {
     margin-left: 640px;
     margin-top: 20px;
@@ -14,10 +7,9 @@
 .title-container p {
     margin-left: 590px;
     margin-top: -80px;
-
     font: normal normal bold 25px/30px Lato;
     letter-spacing: 0px;
-    color: #333232;
+    color: $dust;
     text-transform: capitalize;
     opacity: 1;
 }
@@ -30,7 +22,7 @@
     text-align: center;
     font: normal normal normal 18px/22px Lato;
     letter-spacing: 0px;
-    color: #333232;
+    color: $dust;
     opacity: 1;
 }
 
@@ -38,7 +30,7 @@
     width: 751px;
     height: 42px;
     background: #FAFAFA 0% 0% no-repeat padding-box;
-    border: 1px solid #DCDCDC;
+    border: 1px solid $thick_white;
     opacity: 1;
     margin-left: 340px;
     margin-top: 45px;
@@ -62,8 +54,8 @@
 .email-sec {
     width: 223px;
     height: 112px;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    border: 1px solid #DCDCDC;
+    background: $pale_white 0% 0% no-repeat padding-box;
+    border: 1px solid $thick_white;
     margin-left: 340px;
 }
 
@@ -75,8 +67,8 @@
 .contact-sec {
     width: 224px;
     height: 112px;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    border: 1px solid #DCDCDC;
+    background: $pale_white 0% 0% no-repeat padding-box;
+    border: 1px solid $thick_white;
     opacity: 1;
     margin-left: 563px;
     margin-top: -113px;
@@ -92,8 +84,8 @@
 .address-sec {
     width: 304px;
     height: 112px;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    border: 1px solid #DCDCDC;
+    background: $pale_white 0% 0% no-repeat padding-box;
+    border: 1px solid $thick_white;
     margin-left: 787px;
     margin-top: -113px;
     padding-top: 10px;
@@ -108,4 +100,13 @@
     letter-spacing: 0px;
     color: #333232;
     opacity: 1;
+}
+
+.btn{
+    background:#3371B5;
+    height: 35px;
+    color:$white;
+    opacity:1;
+    margin-left:43%;
+    margin-top:2%;
 }

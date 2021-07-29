@@ -2,7 +2,6 @@
 
 .ResetContent {
     font: normal normal medium 15px/30px Roboto;
-
     letter-spacing: 0px;
     color: $light_black;
     text-transform: capitalize;
@@ -51,7 +50,7 @@
     opacity: 1;
 }
 
-.emailbox {
+.passwordbox {
     margin-left: 67px;
     width: 285px;
     height: 35px;
@@ -76,4 +75,20 @@ button[type="submit"] {
     color: $pale_white;
     opacity: 1;
 
+}
+
+@media(max-width:1024px){
+    .main{
+        margin-left: -45%;
+        width: 110%;
+    }
+  
+}
+
+@media(max-width:768px){
+    .main{
+        margin-left: -45%;
+        width: 110%;
+    }
+  
 }

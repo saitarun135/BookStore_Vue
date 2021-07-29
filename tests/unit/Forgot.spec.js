@@ -11,7 +11,6 @@ import Forgot from '../../src/Pages/Forgot.vue';
 import { createLocalVue, shallowMount} from '@vue/test-utils'
 describe('Forgot.vue', ()=>{
     let wrapper;
-    let brandName='Bookstore';
     let title='Forgot Your Password?';
     let content="Enter your email address and we'll send you a link to reset your password.";
     beforeEach(() => {
@@ -24,13 +23,7 @@ describe('Forgot.vue', ()=>{
     it('renders a vue instance', () => {
         expect(shallowMount(Forgot).vm).toBeTruthy();
     })
-    it('has an image inside navbar', () => {
-        expect(wrapper.find('#brand-logo')).toBeTruthy();
-    });
-    it('Checks the Brand name inside navbar', () => {
-        expect(wrapper.vm.brandName).toMatch('Bookstore');
-    });
-
+  
     it('Checks the Title', () => {
         expect(wrapper.vm.title).toMatch('Forgot Your Password?');
     });

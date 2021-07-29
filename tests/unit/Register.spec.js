@@ -1,5 +1,5 @@
 /*************************************************************************
-* Purpose : to test registration component
+* Purpose : to test the registration component
 *
 * @file : Register.spec.js
 * @author : Sai Tarun <saitarun800@gmail.com>

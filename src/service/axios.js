@@ -13,4 +13,10 @@ export default class AxiosService{
             return response;
         })
     }
+    updateData(url,data){
+       return axios.put(url,data).then(response=>{
+        localStorage.getItem('token', response.data.token); 
+           return response;
+       })
+    }
 }

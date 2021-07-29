@@ -44,10 +44,7 @@ describe('Login.vue', ()=>{
     it('has a button field',()=>{
         expect(wrapper.find('.btn-section')).toBeTruthy();
     });
-    it('has a two unused button fields',()=>{
-        expect(wrapper.find('.btn-primary')).toBeTruthy();
-        expect(wrapper.find('.btn-light')).toBeTruthy();
-    });
+  
     
    
 })

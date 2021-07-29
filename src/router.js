@@ -9,6 +9,10 @@ import DisplayBooks from './components/DisplayBooks.vue'
 import AdminDashboard from './Admin/AdminDashboard.vue'
 import CreateBook from './Admin/CreateBook.vue'
 import OrderPlace from './components/OrderPlace.vue'
+import Cart from './components/Cart.vue'
+import sortBooksLowtoHigh from './components/sortBooksLowtoHigh.vue'
+import sortBooksHightoLow from './components/sortBooksHightoLow.vue'
+
 Vue.use(Router)
 export  default new Router({
     mode:'history',
@@ -29,10 +33,7 @@ export  default new Router({
             path:'/reset/:token',
             component:Reset
         },
-        {
-            path:'/orderSuccess',
-            component:OrderPlace
-        },
+      
        {
            path:'/adminDashboard',
            component:AdminDashboard,
@@ -41,7 +42,8 @@ export  default new Router({
             component:CreateBook
            }]
        },
-     
+      
+
         {
             path:'/dashboard',
             component:Dashboard,
@@ -49,8 +51,25 @@ export  default new Router({
                 path:'/displaybooks',
                 component:DisplayBooks
             },
+          
+            {
+                path:'/sortLowtoHigh',
+                component:sortBooksLowtoHigh
+            },
+            {
+                path:'/sortHightoLow',
+                component:sortBooksHightoLow
+            },
+            {
+                path:'/cart',
+                component:Cart
+            },        
         ]   
         },
+        {
+            path:'/ordersuccess',
+            component:OrderPlace
+        },  
       
     ]      
 })

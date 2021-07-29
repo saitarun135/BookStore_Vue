@@ -1,12 +1,15 @@
 <template>
 <div class="carddisplay-section">
-    <div v-for="book in books" :key="book.id" class="card book">
-        <div class="image-section">
+    <div class="books-total">
+        <h6>Books<span class="items">({{books.length}}items)</span></h6>
+    </div>
+    <div v-for="book in books" :key="book.id" class="card book" >
+        <div class="image-section"  @mouseover="book.hover = true" @mouseleave="book.hover = false">
             <div class="image-container">
                 <img  v-bind:src="book.file" />
             </div>
         </div>
-        <div class="title-section">
+        <div class="title-section" >
             {{book.name}}
         </div>
         <div class="author-section">
@@ -14,8 +17,9 @@
         </div>
         <div class="price-section">
             Rs. {{book.price}}<label class="default">(2000)</label>
-            <button v-if="flag" class="btn-grp" type="submit" @click="handlesubmit();Togglebtn();">close</button>
+           
         </div>
+      
         <div class="buttons">
             <div class="button-groups"  v-if="!addedBooks.includes(book.id)">
                 <button type="submit"  @click="handleCart(book.id);toggle(book.id);addedBooks.push(book.id)"  class="AddBag">Add to Bag</button>
@@ -25,6 +29,10 @@
             <button class="big-btn" @click="removeFromCart(book.id);addedBooks=addedBooks.filter(id=>id!==book.id)">Added to Bag</button>
             </div>
         </div>
+        <div class="description" v-if="book.hover">
+            <p class="hovered-heading">BookDetails</p>
+            {{book.description}}
+        </div>
     </div>
 </div>
 </template>
@@ -33,10 +41,16 @@
 import service from '../service/User'
 export default {
       mounted() {
-            service.userDisplayBooks().then(response => {  
-                this.books.push(...response.data); 
-                return response; 
-            })
+        service.userDisplayBooks().then(response => { 
+        let data = response.data;
+        data.map(function(obj) {
+            obj.hover = false;
+            return obj;
+        });
+
+        this.books.push(...data); 
+        return response; 
+    })
         },
     data() {
         return {
@@ -45,20 +59,20 @@ export default {
             authorPrefix: 'by',
             pricePrefix: 'Rs.',
             defaultStrikePrice: '(2000)',
-            buttonValue: 'close',
+            buttonValue: 'Add to Bag',
+            buttonWishlist:'wishlist',
+            buttonAddedBag:'Added to Bag',
             flag: true,
             state: true,
             addedBooks:[],
             clickedCard: '',
-            books: [
-          
-            ]
+            books: []
         }
     },
     watch:{
     addedBooks:{
             handler(val){
-               this.$emit('update-books-count',val.length)
+               this.$emit('update-books-count',val.length) 
              },
              deep:true
           }
@@ -86,6 +100,9 @@ export default {
             }
             service.userUpdateCart(userData).then(response=>{
                 return response;
+            }).catch(error=>{
+                alert("error while displaying Books");
+                return error;
             })
         },
         removeFromCart(bookId){
@@ -94,6 +111,9 @@ export default {
             }
             service.userRemoveFromCart(userData).then(response=>{
                 return response;
+            }).catch(error=>{
+                alert("error while removing from cart");
+                return error;
             })
         }
     }

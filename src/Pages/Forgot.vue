@@ -1,15 +1,5 @@
 <template>
 <div class="main">
-    <nav class="navbar navbar-default">
-        <div class="navbar-header">
-            <img src="../assets/education.png" id="brand-logo" alt="notFound" />
-        </div>
-        <ul class="nav navbar-nav">
-            <li>
-                <p>Bookstore</p>
-            </li>
-        </ul>
-    </nav>
     <div class="heading">
         <h3 class="forgotContent"> Forgot Your Password?</h3>
     </div>
@@ -35,7 +25,6 @@ export default {
     data() {
         return {
             email: '',
-            brandName:'Bookstore',
             title:'Forgot Your Password?',
             content:"Enter your email address and we'll send you a link to reset your password."
         }

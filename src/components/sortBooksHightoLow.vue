@@ -36,6 +36,9 @@ export default {
  created() {
             service.userDisplayBooksHightoLow().then(response => {
                 this.books.push(...response.data);
+            }).catch(error=>{
+                alert("error while sorting");
+                return error;
             })
         },
     data() {
@@ -83,6 +86,9 @@ export default {
             }
             service.userUpdateCart(userData).then(response=>{
                 return response;
+            }).catch(error=>{
+                alert("error while updating cart");
+                return error;
             })
         },
         removeFromCart(bookId){
@@ -91,6 +97,9 @@ export default {
             }
             service.userRemoveFromCart(userData).then(response=>{
                 return response;
+            }).catch(error=>{
+                alert("error while removing from cart");
+                return error;
             })
         }
     }

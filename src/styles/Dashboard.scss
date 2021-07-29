@@ -5,7 +5,7 @@
 }
 li .brand{
     margin-top: 5px;
-    margin-left: -1250px;
+    margin-left: -1210px;
     width: 91px;
     height: 26px;
     text-align: left;
@@ -24,7 +24,7 @@ img {
     margin-left: 194px;
 }
 .input-group{
-    margin-left:345px;
+    margin-left:395px;
 }
 input[type="search"]{
     width: 490px;
@@ -35,11 +35,9 @@ input[type="search"]{
     margin-left:3px;
     opacity: 1;
 }
-
-
 .input-group {
   display: flex;
-  align-items: center; // to center the icon vertically
+  align-items: center; 
 }
 
 .input-group .fas {
@@ -48,8 +46,8 @@ input[type="search"]{
 
 }
 .fa-search{
-    margin-top:-40px;
-     opacity: 1;
+  margin-top:-40px;
+  opacity: 1;
 }
 .input-group input[type="search"] {
   padding: 8px 8px 8px 32px;
@@ -57,7 +55,67 @@ input[type="search"]{
 a i{
   width: 15px;
   height: 15px;
-  color:white;
+  color:$white;
   opacity: 1;
 }
- 
+ #right-bar{
+  position: absolute;
+  display: flex;
+  right: 0;
+  flex-direction: row !important;  
+  gap: 3.5rem;
+  margin-right: 15rem;
+  margin-top: 20px;
+}
+.length{
+  color: #A03037;
+  opacity: 1;
+  width: 10px;
+  height:20px;
+  position:absolute;
+  margin-top:-20px;
+  margin-left:-5px;
+  background:$white;
+  border-radius:50%;
+}
+.profile-content{
+  margin-top:15px;
+  margin-left:-86px;
+  letter-spacing: 0.45px;
+  color: $pale_white;
+  opacity: 1;
+  position: relative;
+}
+.cart-content{
+  margin-top:15px;
+  margin-left:-75px;
+  letter-spacing: 0.75px;
+  color: $pale_white;
+  opacity: 1;
+  position: relative;
+}
+.mid-body {
+  display:flex;
+  margin-left: 635px;
+  
+}
+.options{
+
+  margin-top:46px;
+  margin-left:69%;
+  height:25px;
+}
+h6{
+  margin-top:26px;
+  margin-left:110px;
+  text-transform: capitalize;
+  font-size: larger;
+  font: 20px;
+}
+.items{
+  color:$grey;
+  font-size: 12px;
+}
+.fa-cart-plus{
+  cursor:pointer;
+}
